@@ -107,13 +107,16 @@ You did not listen!... ~_~
 
 Just try a:
 
-    su -c "git clone https://github.com/Renich/shellmin.git /"
+    git clone https://github.com/renich/shellmin.git
+    cd shellmin
+    su -c "GIT_WORK_TREE=/ git checkout -f"
 
 I'd delete:
 
 /.git*
-/README.md
 /INSTALL.md
+/LICENSE
+/README.md
 
 No point on having those lying around.
 
