@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# This script will be the 'FrontController' and it will use other resources to
+# identify capabilities and run commands.
+
+source $( readlink -m "$( dirname "${BASH_SOURCE}" )/../lib/shellmin/env.bash" );
+source ${SHELLMIN_LIBDIR}/bootstrap.bash;
+
+# execute
+execute "${@}"
+
+exit 0;
