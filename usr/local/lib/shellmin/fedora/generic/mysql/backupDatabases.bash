@@ -26,6 +26,12 @@ mysql --defaults-extra-file=/root/.my.cnf -B -N -e "show databases" | while read
     
     echo "Backing up $db into $BACKUPFILE"
     mysqldump $db > $BACKUPFILE;
+
+    echo "Packing backup"
+    tar -caf ${BACKUPFILE}.tar.gz $BACKUPFILE
+
+    echo "delete ${BACKUPFILE}"
+    rm -f ${BACKUPFILE}
 done
 
 exit 0;
