@@ -3,6 +3,9 @@
 - Implement Module-specific helpers.
 
 # Core
+## Updates
+We really need to update the scripts.
+
 ## Logging
 Add some really nifty loging capabilities (journalctl for now)
 
