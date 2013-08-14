@@ -10,6 +10,14 @@ if [[ ! -f /root/.my.cnf ]]; then
     exit 1;
 fi
 
+# check script dependencies
+if $( which mysqldump &> /dev/null ); then
+    echo "Missing dependency: mysqldump";
+    exit 1;
+elif $( which xz &> /dev/null ); then
+    echo "Missing dependency: xz";
+fi
+
 # define location
 BACKUPLOCATION='/var/backup/mysql';
 DATE=$( date +%Y%m%d )
