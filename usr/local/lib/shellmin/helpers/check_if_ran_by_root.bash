@@ -10,3 +10,4 @@ function check_if_ran_by_root
         exit 0;
     fi
 }
+
