@@ -6,7 +6,7 @@ if [[ "$(id -u)" != "0" ]]; then
     exit 1;
 fi
 
-# do
-sed -i 's@^[#]\{0,\}PermitRootLogin yes@PermitRootLogin without-password@g' /etc/ssh/sshd_config
+#do
+grep "enabled.*=.*1" /etc/yum.repos.d/*
 
 exit 0

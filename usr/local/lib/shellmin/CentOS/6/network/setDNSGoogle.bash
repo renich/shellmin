@@ -6,7 +6,7 @@ if [[ "$(id -u)" != "0" ]]; then
     exit 1;
 fi
 
-# do
-sed -i 's@^[#]\{0,\}PermitRootLogin yes@PermitRootLogin without-password@g' /etc/ssh/sshd_config
+#do
+echo -e "$(sed -e 's@^nameserver.*$@@g' /etc/resolv.conf)\nnameserver 8.8.8.8\nnameserver 4.4.4.4" > /etc/resolv.conf
 
 exit 0

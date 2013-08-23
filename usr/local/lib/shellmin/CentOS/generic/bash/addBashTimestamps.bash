@@ -6,7 +6,7 @@ if [[ "$(id -u)" != "0" ]]; then
     exit 1;
 fi
 
-# do
-sed -i 's@^[#]\{0,\}PermitRootLogin yes@PermitRootLogin without-password@g' /etc/ssh/sshd_config
-
-exit 0
+#do
+if [[ ! $(grep 'HISTTIMEFORMAT' /root/.bashrc) ]]; then
+    echo 'export HISTTIMEFORMAT="[%h/%d/%Y - %H:%M:%S]"' >> /root/.bashrc
+fi

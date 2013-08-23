@@ -7,6 +7,6 @@ if [[ "$(id -u)" != "0" ]]; then
 fi
 
 # do
-sed -i 's@^[#]\{0,\}PermitRootLogin yes@PermitRootLogin without-password@g' /etc/ssh/sshd_config
+sed -i 's@PermitRootLogin .*@PermitRootLogin no@' /etc/ssh/sshd_config
 
 exit 0

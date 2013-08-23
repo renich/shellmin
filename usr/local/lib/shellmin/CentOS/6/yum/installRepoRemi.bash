@@ -6,7 +6,8 @@ if [[ "$(id -u)" != "0" ]]; then
     exit 1;
 fi
 
-# do
-sed -i 's@^[#]\{0,\}PermitRootLogin yes@PermitRootLogin without-password@g' /etc/ssh/sshd_config
+#do
+wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm -O /tmp/remi-release-6.rpm
+sudo rpm -Uvh /tmp/remi-release-6.rpm
 
 exit 0

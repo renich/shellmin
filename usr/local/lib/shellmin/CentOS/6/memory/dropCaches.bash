@@ -7,6 +7,6 @@ if [[ "$(id -u)" != "0" ]]; then
 fi
 
 # do
-sed -i 's@^[#]\{0,\}PermitRootLogin yes@PermitRootLogin without-password@g' /etc/ssh/sshd_config
+echo 3 > /proc/sys/vm/drop_caches
 
 exit 0

@@ -6,7 +6,7 @@ if [[ "$(id -u)" != "0" ]]; then
     exit 1;
 fi
 
-# do
-sed -i 's@^[#]\{0,\}PermitRootLogin yes@PermitRootLogin without-password@g' /etc/ssh/sshd_config
+#do
+php -v |head -1 | awk {'print $2'} | cut -d "." -f 1-2
 
 exit 0
