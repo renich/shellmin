@@ -4,7 +4,7 @@ export SHELLMIN_ROOTDIR=$( readlink -m "$( dirname "${BASH_SOURCE}" )/../../../.
 export SHELLMIN_CONFDIR="${SHELLMIN_ROOTDIR}/usr/local/etc/shellmin";
 export SHELLMIN_LIBDIR="${SHELLMIN_ROOTDIR}/usr/local/lib/shellmin";
 export SHELLMIN_DOCDIR="${SHELLMIN_ROOTDIR}/usr/local/share/doc/shellmin";
-export SHELLMIN_HELPERSDIR="${SHELLMIN_LIBDIR}/helpers";
+
 
 # get OS and releave version
 if [[ -f /etc/fedora-release ]]; then
@@ -24,4 +24,11 @@ SHELLMIN_CONTROLLERSDIR+=(
     "${SHELLMIN_LIBDIR}/${SHELLMIN_OS}/generic"
 );
 
+SHELLMIN_HELPERSDIR=(
+	"${SHELLMIN_LIBDIR}/helpers"
+	"${SHELLMIN_LIBDIR}/${SHELLMIN_OS}/generic/helpers"
+	"${SHELLMIN_LIBDIR}/${SHELLMIN_OS}/${SHELLMIN_OS_VERSION}/helpers"
+)
+
 export SHELLMIN_CONTROLLERSDIR;
+export SHELLMIN_HELPERSDIR;
