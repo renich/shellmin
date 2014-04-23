@@ -6,7 +6,5 @@ function check_if_ran_by_root
     if [[ "$(id -u)" != "0" ]]; then
         echo "This script must be ran as root";
         exit 1;
-    else
-        exit 0;
     fi
 }

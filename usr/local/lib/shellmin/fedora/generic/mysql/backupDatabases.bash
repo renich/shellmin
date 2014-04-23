@@ -2,12 +2,20 @@
 # original src: http://wiki.bacula.org/doku.php?id=mysql
 
 # check if executed by root
-check_if_ran_by_root ();
+check_if_ran_by_root;
 
 # check for .my.cnf
 if [[ ! -f /root/.my.cnf ]]; then
     echo "The .my.cnf file has not been set. Please, read enclosed documentation to clarify.";
     exit 1;
+fi
+
+# check script dependencies
+if $( which mysqldump &> /dev/null ); then
+    echo "Missing dependency: mysqldump";
+    exit 1;
+elif $( which xz &> /dev/null ); then
+    echo "Missing dependency: xz";
 fi
 
 # define location
@@ -22,16 +30,10 @@ fi
 
 # Process all DBs
 mysql --defaults-extra-file=/root/.my.cnf -B -N -e "show databases" | while read db; do
-    BACKUPFILE="${BACKUPLOCATION}/${DATE}-${db}.mysql";
+    BACKUPFILE="${BACKUPLOCATION}/${DATE}-${db}.mysql.xz";
     
-    echo "Backing up $db into $BACKUPFILE"
-    mysqldump $db > $BACKUPFILE;
-
-    echo "Packing backup"
-    tar -caf ${BACKUPFILE}.tar.gz $BACKUPFILE
-
-    echo "delete ${BACKUPFILE}"
-    rm -f ${BACKUPFILE}
+    echo "Backing up $db into $BACKUPFILE; compressed by xz"
+    mysqldump $db | xz -zec > $BACKUPFILE;
 done
 
 exit 0;
