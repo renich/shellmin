@@ -3,9 +3,9 @@ This is the mighty shellmin!
 
 It is destined to become the ultimate bash shell-based administrator for GNU & Linux distributions.
 
-Right now, it servers as a wrapper for useful standaline scripts.
+Right now, it servers as a wrapper for useful standalone scripts.
 
-the idea is to make them standalone. Also, it should help you setup things in a fairly usable and nice way.
+The idea is to make them standalone. Also, it should help you setup things in a fairly usable and nice way.
 
 Did I mention that is language agnostic? As long as it is executable, you can extend! It will only require an exit status.
 
